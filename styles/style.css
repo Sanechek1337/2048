@@ -91,18 +91,81 @@ body {
 	justify-content: space-around;
 	align-items: center;
 	padding: 20px;
-	border-radius: 10px;
-	background-color: #b4bb57;
+	border-radius: 6px;
+	background-color: #776e65;
 	transition: all 0.3s;
 }
 
 .cells {
 	width: 120px;
 	height: 120px;
-	background-color: #cdcf3f;
+	background-color: rgba(238, 228, 218, 0.35);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 40px;
-	color: #5e5d5d;
+	color: #776e65;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+span {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cell2 {
+	color: #776e65;
+	background-color: #eee4da;
+}
+
+.cell4 {
+	background-color: #eee1c9;
+}
+
+.cell8 {
+	color: #f9f6f2;
+	background-color: #f3b27a;
+}
+
+.cell16 {
+	color: #f9f6f2;
+	background-color: #f69664;
+}
+.cell32 {
+	color: #f9f6f2;
+	background-color: #f77c5f;
+}
+
+.cell64 {
+	color: #f9f6f2;
+	background-color: #f75f3b;
+}
+
+.cell128 {
+	color: #f9f6f2;
+	background-color: #edd073;
+}
+
+.cell256 {
+	color: #f9f6f2;
+	background-color: #edcc62;
+}
+
+.cell512 {
+	color: #f9f6f2;
+	background-color: #edc950;
+}
+
+.cell1024 {
+	color: #f9f6f2;
+	background-color: #edc53f;
+}
+
+.cell2048 {
+	color: #f9f6f2;
+	background-color: #edc22e;
 }
