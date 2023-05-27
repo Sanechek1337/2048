@@ -76,28 +76,135 @@ h6 {
 
 body {
 	display: flex;
+	flex-direction: column;
+	gap: 30px;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
 	width: 100vw;
+	font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+	background-color: #faf8ef;
+}
+
+.header {
+	display: grid;
+	width: 400px;
+	grid-template-areas:
+		"h s"
+		"ng t";
+	gap: 10px;
+}
+.game-label {
+	grid-area: h;
+	font-size: 60px;
+	font-weight: 700;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #776e65;
+}
+
+.new-game-button {
+	grid-area: ng;
+	display: inline-block;
+	font-weight: 700;
+	background: #8f7a66;
+	border-radius: 3px;
+	padding: 0 20px;
+	color: #f9f6f2;
+	height: 50px;
+	width: 140px;
+	font-size: 18px;
+	margin: auto;
+}
+
+.score-board {
+	grid-area: s;
+	display: flex;
+	flex-direction: row;
+	font-size: 20px;
+	gap: 20px;
+}
+.score-label {
+	width: 87px;
+	padding: 6px 12px;
+	background-color: #bbada0;
+	border-radius: 3px;
+	font-weight: 700;
+	color: #eee4da;
+}
+.score-counter {
+	margin-top: 5px;
+	display: block;
+	text-align: center;
+	color: #fff;
+}
+.best-score-label {
+	width: 134px;
+	padding: 6px 12px;
+	background-color: #bbada0;
+	border-radius: 3px;
+	font-weight: 700;
+	color: #eee4da;
+}
+.best-score {
+	margin-top: 5px;
+	display: block;
+	text-align: center;
+	color: #fff;
+}
+.time-board {
+	grid-area: t;
+	display: flex;
+	flex-direction: row;
+	font-size: 20px;
+	gap: 20px;
+}
+.time-counter {
+	width: 87px;
+	padding: 6px 17px;
+	background-color: #bbada0;
+	border-radius: 3px;
+	font-weight: 700;
+	color: #eee4da;
+}
+.game-time {
+	margin-top: 5px;
+	display: block;
+	text-align: center;
+	color: #fff;
+}
+.best-time-label {
+	width: 134px;
+	padding: 6px 12px;
+	background-color: #bbada0;
+	border-radius: 3px;
+	font-weight: 700;
+	color: #eee4da;
+}
+.best-time {
+	margin-top: 5px;
+	display: block;
+	text-align: center;
+	color: #fff;
 }
 
 #game-field {
 	display: flex;
-	width: 600px;
-	height: 600px;
+	width: 540px;
+	height: 540px;
 	gap: 10px;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 	padding: 20px;
 	border-radius: 6px;
-	background-color: #776e65;
+	background-color: #bbada0;
 }
 
 .cells {
-	width: 120px;
-	height: 120px;
+	width: 110px;
+	height: 110px;
 	background-color: rgba(238, 228, 218, 0.35);
 	display: flex;
 	justify-content: center;
@@ -108,12 +215,13 @@ body {
 	overflow: hidden;
 }
 
-span {
+.cells span {
 	width: 100%;
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-weight: 700;
 }
 
 .cell2 {
