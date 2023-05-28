@@ -12,39 +12,84 @@
 <body>
 	<header class="header">
 		<h1 class="game-label">2048</h1>
-
-		<button class="new-game-button">New Game</button>
+		<button class="menu-button">Menu</button>
 
 		<div class="score-board">
-
 			<p class="score-label">Score:
 				<span class="score-counter">0</span>
 			</p>
-
 			<p class="best-score-label">Best score:
 				<span class="best-score">0</span>
 			</p>
-
 		</div>
 
 		<div class="time-board">
-
 			<p class="time-counter">
 				Time:
 				<span class="game-time">00:00</span>
 			</p>
-
 			<p class="best-time-label">
 				Best time:
 				<span class="best-time">00:00</span>
 			</p>
-
 		</div>
-
-
 	</header>
 
-	<main id="game-field">
+
+	<div class="menu">
+		<button class="start-button" onclick="startGame()">Начать игру</button>
+
+		<div class="difficulty-selection">
+			<div>
+				<label>
+					<input type="radio" name="difficulty" value="easy"> Легкая
+				</label>
+				<div id="easy-info" class="difficulty-info">
+					<p>Легкая игра, стандартный шанс появления блоков, можно удалять нужные блоки по нажатию левой кноки
+						мыши</p>
+				</div>
+			</div>
+
+			<div>
+				<label>
+					<input type="radio" name="difficulty" value="medium"> Средняя
+				</label>
+				<div id="medium-info" class="difficulty-info">
+					<p>Стандартная игра, повышенный шанс появления блока со значением 4</p>
+				</div>
+			</div>
+
+			<div>
+				<label>
+					<input type="radio" name="difficulty" value="hard"> Тяжелая
+				</label>
+				<div id="hard-info" class="difficulty-info">
+					<p>Сложная игра, случайное появления блоков со значениями 2,4,8,16</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div id="game-field">
+		<div class="game-over">
+			<p class="game-over-message"></p>
+			<button class="retry-button">Try again</button>
+		</div>
+		<div class="cells">
+			<span></span>
+		</div>
+		<div class="cells">
+			<span></span>
+		</div>
+		<div class="cells">
+			<span></span>
+		</div>
+		<div class="cells">
+			<span></span>
+		</div>
 
 		<div class="cells">
 			<span></span>
@@ -84,20 +129,7 @@
 		<div class="cells">
 			<span></span>
 		</div>
-
-		<div class="cells">
-			<span></span>
-		</div>
-		<div class="cells">
-			<span></span>
-		</div>
-		<div class="cells">
-			<span></span>
-		</div>
-		<div class="cells">
-			<span></span>
-		</div>
-	</main>
+	</div>
 
 	<script src="./js/scripts.js"></script>
 </body>
