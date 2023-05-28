@@ -84,6 +84,7 @@ body {
 	width: 100vw;
 	font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
 	background-color: #faf8ef;
+	position: relative;
 }
 
 .menu {
@@ -249,6 +250,16 @@ label:hover + .difficulty-info {
 	color: #fff;
 }
 
+.autoplay {
+	display: none;
+	position: absolute;
+	right: 300px;
+	top: 50%;
+	background-color: #edc22e;
+	padding: 10px 30px;
+	border-radius: 5px;
+}
+
 #game-field {
 	display: none;
 	position: relative;
@@ -275,7 +286,20 @@ label:hover + .difficulty-info {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	gap: 20px;
 	background: rgba(238, 228, 218, 0.73);
+}
+
+.game-over-message {
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.retry-button {
+	background-color: #fff;
+	font-size: 18px;
+	padding: 6px 12px;
+	border-radius: 3px;
 }
 
 .cells {

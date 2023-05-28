@@ -20,10 +20,12 @@ function startGame() {
 	const menu = document.querySelector(".menu");
 	const gameField = document.querySelector("#game-field");
 	const header = document.querySelector('.header');
+	const autoplay = document.querySelector('.autoplay');
 
 	menu.style.display = "none";
 	gameField.style.display = "flex";
 	header.style.display = "grid";
+	autoplay.style.display = "block";
 
 	game(selectedDifficulty); // Запуск игры
 }
@@ -42,6 +44,9 @@ function game(difficult) {
 	const gameOverWindow = document.querySelector('.game-over');
 	const gameWin = document.querySelector('.game-over-message');
 	const retryButton = document.querySelector('.retry-button');
+	const autoplayBlock = document.querySelector('.autoplay');
+	const autoplay = document.querySelector('.autoplay-checkbox');
+
 
 	let freeCells = Array.from(gameCells); // Массив свободных клеток
 	let score = 0;
@@ -59,12 +64,15 @@ function game(difficult) {
 	document.addEventListener('keydown', handleKeyDown);
 	menuButton.addEventListener('click', showMenu);
 	retryButton.addEventListener('click', showMenu);
+	autoplay.addEventListener("change", toggleAutoPlay);
 
 	function showMenu() {
 		gameField.style.display = "none";
 		header.style.display = "none";
 		menu.style.display = "flex";
 		gameOverWindow.style.display = "none";
+		autoplayBlock.style.display = "none";
+		autoplay.checked = false;
 		gameCells.forEach(cell => cell.textContent = '');
 		score = 0;
 		scoreCounter.textContent = 0;
@@ -226,11 +234,37 @@ function game(difficult) {
 		})
 	}
 
+	function toggleAutoPlay() {
+		const directionAll = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+
+		const eventAI = {
+			autoplay: true,
+			key: () => {
+				return directionAll[Math.floor(Math.random() * 4)]
+			},
+		}
+
+		function bot() {
+			if (!autoplay.checked || gameOver.lose || gameOver.win) {
+				clearInterval(autoPlayInterval)
+				return
+			}
+
+			return handleKeyDown(eventAI)
+		}
+
+		let autoPlayInterval = setInterval(bot, 500);
+	}
+
+
 	function handleKeyDown(event) {
-		const key = event.key;
+		let key = event.key;
+		const isAutoplay = event.autoplay;
+		if (isAutoplay) {
+			key = event.key();
+		}
 		// Для проверки на изменения, чтобы не создавались новые блоки когда существующие уже некуда двигать
 		let changed = false;
-
 
 		if (key === 'w' || key === 'ArrowUp' || key === 'ц') {
 
@@ -286,6 +320,8 @@ function game(difficult) {
 			if (changed) {
 				freeCells = gameCells.filter(cell => cell.textContent === '');
 				toFillCell();
+			} else if (isAutoplay) {
+
 			}
 		}
 
@@ -469,3 +505,4 @@ function game(difficult) {
 		if (gameOver.win || gameOver.lose) document.removeEventListener('keydown', handleKeyDown);
 	}
 }
+
