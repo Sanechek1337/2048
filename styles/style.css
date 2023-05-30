@@ -322,6 +322,7 @@ label:hover + .difficulty-info {
 	justify-content: center;
 	align-items: center;
 	font-weight: 700;
+	user-select: none;
 }
 
 .cell2 {
