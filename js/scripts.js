@@ -287,7 +287,7 @@ function game(difficult) {
 						changed = true;
 					}
 
-					if (gameCells[i - 8].textContent !== '' && !mergedBlocks[`${i - 8}`] && !!mergedBlocks[`${i - 4}`]) {
+					if (gameCells[i - 8].textContent !== '' && !mergedBlocks[`${i - 8}`] && !mergedBlocks[`${i - 4}`]) {
 						if (gameCells[i - 4].textContent === gameCells[i - 8].textContent) {
 							gameCells[i - 8].textContent = Number(gameCells[i - 4].textContent) * 2;
 							setScore(gameCells[i - 8].textContent);
@@ -301,7 +301,7 @@ function game(difficult) {
 						changed = true;
 					}
 
-					if (gameCells[i - 4].textContent !== '' && !!mergedBlocks[`${i - 4}`]) {
+					if (gameCells[i - 4].textContent !== '' && !mergedBlocks[`${i - 4}`]) {
 						if (gameCells[i].textContent === gameCells[i - 4].textContent) {
 							gameCells[i - 4].textContent = Number(gameCells[i].textContent) * 2;
 							setScore(gameCells[i - 4].textContent);
